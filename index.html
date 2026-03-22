@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shut the Box</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='10' y='10' width='80' height='80' rx='15' fill='%23c0392b'/><circle cx='30' cy='30' r='7' fill='white'/><circle cx='50' cy='50' r='7' fill='white'/><circle cx='70' cy='70' r='7' fill='white'/><circle cx='70' cy='30' r='7' fill='white'/><circle cx='30' cy='70' r='7' fill='white'/></svg>" type="image/svg+xml" />
+</head>
+<body>
+
+<div class="container">
+
+  <!-- MODE -->
+  <div id="modeScreen">
+    <h2>🎲 Shut the Box</h2>
+    <p>Oyun Modu Seç</p>
+    <button onclick="startGame('single')">Tek Oyunculu</button>
+    <button onclick="startGame('multi-sirayla')">Çok Oyunculu (Sırayla)</button>
+    <button onclick="startGame('multi-karsilikli')">Çok Oyunculu (Karşılıklı)</button>
+  </div>
+
+  <!-- GAME -->
+  <div id="gameScreen" class="hidden">
+    <!-- ANA MENÜYE DÖN BUTONU -->
+    <button id="backBtn" onclick="confirmExit()">Ana Menüye Dön</button>
+    
+    <div id="matchScoreDisplay" class="info hidden" style="font-weight: bold; color: #c0392b;">Oyun Durumu: 0 - 0</div>
+    <h3 id="playerInfo"></h3>
+
+    <div class="info">🎲 Zar: <span id="diceResult">-</span></div>
+    <button onclick="rollDice()">Zar At</button>
+
+    <div class="tiles" id="tiles"></div>
+
+    <div class="info">Seçilen Toplam: <span id="selectedSum">0</span></div>
+    <button onclick="confirmMove()">Hamleyi Onayla</button>
+  </div>
+
+  <!-- CUSTOM MODAL -->
+  <div id="customModal" class="modal-overlay hidden">
+    <div class="modal">
+      <h3 id="modalTitle">Mesaj</h3>
+      <p id="modalMessage"></p>
+      <!-- ESKİ TAMAM BUTONU YERİNE ESNEK BUTONLAR -->
+      <div id="modalButtons" class="modal-buttons"></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
