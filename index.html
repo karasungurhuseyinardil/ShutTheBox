@@ -10,31 +10,36 @@
 <body>
 
 <div class="container">
+  <div class="top-bar">
+    <button id="languageToggleBtn" class="lang-btn" onclick="toggleLanguage()">EN</button>
+  </div>
 
   <!-- MODE -->
   <div id="modeScreen">
     <h2>🎲 Shut the Box</h2>
-    <p>Oyun Modu Seç</p>
-    <button onclick="startGame('single')">Tek Oyunculu</button>
-    <button onclick="startGame('multi-sirayla')">Çok Oyunculu (Sırayla)</button>
-    <button onclick="startGame('multi-karsilikli')">Çok Oyunculu (Karşılıklı)</button>
+    <p id="modeTitle">Oyun Modu Seç</p>
+    <button id="singleBtn" onclick="startGame('single')">Tek Oyunculu</button>
+    <button id="multiSequentialBtn" onclick="startGame('multi-sirayla')">Çok Oyunculu (Sırayla)</button>
+    <button id="multiVersusBtn" onclick="startGame('multi-karsilikli')">Çok Oyunculu (Karşılıklı)</button>
   </div>
 
   <!-- GAME -->
   <div id="gameScreen" class="hidden">
-    <!-- ANA MENÜYE DÖN BUTONU -->
     <button id="backBtn" onclick="confirmExit()">Ana Menüye Dön</button>
-    
-    <div id="matchScoreDisplay" class="info hidden" style="font-weight: bold; color: #c0392b;">Oyun Durumu: 0 - 0</div>
+
+    <div id="matchScoreDisplay" class="info hidden" style="font-weight: bold; color: #c0392b;">
+      Oyun Durumu: 0 - 0
+    </div>
+
     <h3 id="playerInfo"></h3>
 
-    <div class="info">🎲 Zar: <span id="diceResult">-</span></div>
-    <button onclick="rollDice()">Zar At</button>
+    <div class="info"><span id="diceLabel">🎲 Zar</span>: <span id="diceResult">-</span></div>
+    <button id="rollBtn" onclick="rollDice()">Zar At</button>
 
     <div class="tiles" id="tiles"></div>
 
-    <div class="info">Seçilen Toplam: <span id="selectedSum">0</span></div>
-    <button onclick="confirmMove()">Hamleyi Onayla</button>
+    <div class="info"><span id="selectedTotalLabel">Seçilen Toplam</span>: <span id="selectedSum">0</span></div>
+    <button id="confirmBtn" onclick="confirmMove()">Hamleyi Onayla</button>
   </div>
 
   <!-- CUSTOM MODAL -->
@@ -42,11 +47,12 @@
     <div class="modal">
       <h3 id="modalTitle">Mesaj</h3>
       <p id="modalMessage"></p>
-      <!-- ESKİ TAMAM BUTONU YERİNE ESNEK BUTONLAR -->
       <div id="modalButtons" class="modal-buttons"></div>
     </div>
   </div>
 
+  <!-- LANGUAGE TOAST -->
+  <div id="languageToast" class="toast hidden"></div>
 </div>
 
 <script src="script.js"></script>
